@@ -4,6 +4,46 @@
 [<img alt="ESP32-S3" width="20%" src="imgs/esp32s3.png" />](esp32s3/README.md)
 [<img alt="ESP32-C3" width="20%" src="imgs/esp32c3.png" />](esp32c3/README.md)
 
+## Supported features
+
+|    Feature \ Target   | ESP32 | ESP32-S3 | ESP32-C3 | Notes                                                                                     |
+|:---------------------:|:-----:|:--------:|:--------:|-------------------------------------------------------------------------------------------|
+|     Dual-Core CPU     |   ✅   |     ✅    |    N/A   |                                                                                           |
+|          UART         |   ✅   |     ✅    |     ✅    |                                                                                           |
+|    Interrupt matrix   |   ✅   |     ✅    |     ✅    |                                                                                           |
+|       GPIO strap      |   ✅   |     ✅    |     ✅    |                                                                                           |
+|     NOR Flash SPI     |   ✅   |     ✅    |     ✅    |                                                                                           |
+|     NOR Flash MMU     |   ✅   |    ✅*    |     ✅    | ESP32-S3 uses the host's hardware MMU for better emulation                                |
+|  NOR Flash encryption |   ✅   |     ✅    |     ✅    |                                                                                           |
+|       PSRAM QPI       |   ✅   |     ✅    |    N/A   |                                                                                           |
+|       PSRAM OPI       |   ✅*  |     ✅    |    N/A   | ESP32 doesn't support Octal PSRAM on the real hardware                                    |
+|       PSRAM MMU       |  N/A  |    ✅*    |    N/A   | ESP32-S3 uses the host's hardware MMU for better emulation                                |
+|         eFuse         |   ✅   |     ✅    |     ✅    |                                                                                           |
+|          RNG          |   ✅   |     ✅    |     ✅    |                                                                                           |
+|          GDMA         |  N/A  |     ✅    |     ✅    |                                                                                           |
+|          AES          |   ✅   |     ✅    |     ✅    |                                                                                           |
+|          SHA          |   ✅   |     ✅    |     ✅    |                                                                                           |
+|          RSA          |   ✅   |     ✅    |     ✅    |                                                                                           |
+|          HMAC         |  N/A  |     ✅    |     ✅    |                                                                                           |
+|   Digital Signature   |  N/A  |     ✅    |     ✅    |                                                                                           |
+|        SysTimer       |  N/A  |     ✅    |     ✅    |                                                                                           |
+|      Timer Groups     |   ✅   |     ✅    |     ✅    |                                                                                           |
+|        TWAI/CAN       |   ✅   |     ✅    |     ✅    |                                                                                           |
+|         SD/MMC        |   ✅   |     ❌    |    N/A   |                                                                                           |
+| Ethernet* (OpenCores) |   ✅   |     ✅    |     ✅    | This is not a real hardware peripheral, it is used to have networking in emulated targets |
+|    RGB Framebuffer*   |   ✅   |     ✅    |     ✅    | This is not a real hardware peripheral, it is used to simplify GUI testing                |
+|       DirectBoot      |  N/A  |    N/A   |     ✅    |                                                                                           |
+|          LEDC         |   ✅   |     ❌    |     ❌    |                                                                                           |
+|          Wi-Fi        |   ❌   |     ❌    |     ❌    | The Ethernet controller can be used for networking instead                                |
+|       Bluetooth       |   ❌   |     ❌    |     ❌    |                                                                                           |
+|          USB          |   ❌   |     ❌    |     ❌    |                                                                                           |
+|          RMT          |   ❌   |     ❌    |     ❌    |                                                                                           |
+|         GP SPI        |   ❌   |     ❌    |     ❌    |                                                                                           |
+|          I2C          |   ❌   |     ❌    |     ❌    |                                                                                           |
+|          I2S          |   ❌   |     ❌    |     ❌    |                                                                                           |
+|   ULP (co-processor)  |   ❌   |     ❌    |     ❌    |                                                                                           |
+|  GPIO matrix / IOMUX  |   ❌   |     ❌    |     ❌    |                                                                                           |
+
 ## About Espressif QEMU fork
 
 [Espressif's QEMU project](https://github.com/espressif/qemu) contains a fork of QEMU with patches for Espressif chips support. We hope that these patches will eventually be mature enough to become part of the upstream QEMU project.
